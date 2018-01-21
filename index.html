@@ -1,29 +1,47 @@
-
-
+<!DOCTYOE html>
 <html>
-
+    
     <head>
+        <title>Student Details</title>
         
-        <title>jQuery</title>
- 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-       
-        <style type="text/css">
-            
-            body {
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+       <style type="text/css">
+        
+           body{
+             background-color: aqua;  
+               height: 100%;
+               display: table-cell;
+            vertical-align: middle;
+           } 
+           
+          
+    html {
+        display: table;
+        margin: auto;
+         
+      }
+           
+           #white{
+               margin-top: 50px;
+               background-color: ghostwhite;
+               height: 1000px;
+               width: 500px;
+               border-radius: 25px;
+               padding: 10px;
+               margin-bottom: 50px;
+              font-family: helvetica, sans-serif;
+                
+           }
 
-                font-family: helvetica, sans-serif;
-                font-size:130%;
-
-            }
-
+     
             input {
 
-                padding: 5px 5px 12px 5px;
-                font-size: 25px;
+                padding: 10px 5px 12px 5px;
                 border-radius: 5px;
                 border: 1px solid grey;
                 width:320px;
+                
 
                 }
             
@@ -31,32 +49,21 @@
                 
                 position: relative;
                 top:12px;
-                width:200px;
-                float: left;
                 
             }
-            
-            #wrapper {
+           
+           .form-element {
                 
-                width: 550px;
-                margin: 0 auto;
-                
+                margin-bottom: 20px;
                 
             }
-            
-            .form-element {
-                
-                margin-bottom: 10px;
-                
-            }
-            
-            #submitButton {
-                
-                width: 130px;
-                margin-left: 200px;
-            }
-            
-            #errorMessage {
+           
+           .red-star{
+               color: red;
+               font-size: 130%
+               
+           }
+         #errorMessage {
                 
                 color: red;
                 font-size: 90% !important;
@@ -69,60 +76,135 @@
                 font-size: 90% !important;
                 display:none;
                 margin-bottom:20px;
+            
                 
             }
-            
         </style>
         
-    </head>
+<script type="text/javascript">
 
-    <body>
-        
-        <div id="wrapper">
-            
-            <div id="successMessage">You've done it! Congratulations.</div>
+function checkPass()
+{
+var pass1= document.getElementById("pw1");
+var pass2= document.getElementById("pw2");
+
+var message = document.getElementById("confirmMessage");
+
+var goodColor = "lightgreen";
+var badColor = "red";
+
+if(pass1.value == pass2.value){
+
+    pass2.style.backgroundColor = goodColor;
+    message.style.color = goodColor;
+    message.innerHTML = "Passwords Match!"
+}else{
+    
+    pass2.style.backgroundColor = badColor;
+    message.style.color = badColor;
+    message.innerHTML = "Passwords Do Not Match!"
+
+}
+}
+        </script>
+     
+     </head>
+     
+     <body>
+     
+     <div id="white"> 
+     
+         <h3 style="text-align: center; color: blue; font-size: 170%"> Enter Student Details</h3>
+         <br><br>
+         
+            <div id="successMessage" >You've done it! Congratulations.</div>
             
             <div id="errorMessage"></div>
-            
-            <div class="form-element">
+         
+         <div class="form-element">
         
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email" placeholder = "eg. yourname@gmail.com">
+                <label for="full-name">Full Name<span class="red-star">*</span></label>
+              &nbsp;&nbsp;&nbsp;  <input type="text" name="full-name" id="full-name" required placeholder = "eg. Nita Kapoor">
                 
                 </div>
-            
-            <div class="form-element">
-            
-                <label for="phone">Telephone</label>
-                <input type="text" name="phone" id="phone" placeholder = "eg. 0123456789">
-
-            </div>
-            
-            <div class="form-element">
-            
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-
-            </div>
-            
-            <div class="form-element">
-            
-                <label for="passwordConfirm">Confirm Password</label>
-                <input type="password" name="passwordConfirm" id="passwordConfirm">
-
-            </div>
-            
-             <div class="form-element">
-            
-                <input type="submit" id="submitButton" value="Sign Up"
-
-            </div>
-            
-        </div>
         
-        <script type="text/javascript">
+       
+            <div class="form-element">
+        
+                <label for="email">Email<span class="red-star">*</span></label>
+              &nbsp;&nbsp;&nbsp;
+                 <input type="text" name="email" id="email" required placeholder = "eg. yourname@gmail.com">
+                
+                </div>
+        
+         
+         <div class="form-element">
             
-            function isEmail(email) {
+                <label for="phone">Telephone<span class="red-star">*</span></label>
+            &nbsp;&nbsp;&nbsp;
+                    <input type="text" name="phone" id="phone" required placeholder = "eg. 0123456789">
+
+            </div>
+            
+            
+         <div class="form-element">
+            
+                <label for="birth">Date Of Birth<span class="red-star">*</span></label>
+            &nbsp;&nbsp;&nbsp;
+                <input type="text" name="birth" id="birth" required placeholder="dd/mm/yyyy">
+
+            </div>
+            
+            
+         <div class="form-element">
+            Address
+                <label for="add"></label>
+             &nbsp;&nbsp;&nbsp;<textarea rows="4" cols="40" style="border-radius: 5px"> </textarea>
+
+
+            </div>
+                     
+                    <div class="form-element">
+            
+                <label for="username">Username<span class="red-star">*</span></label>
+                <input type="text" name="username" id="username" required placeholder="abc123">
+
+            </div>
+            
+            
+            <div class="form-element">
+            
+                <label for="pw">Password<span class="red-star">*</span></label>
+               &nbsp;&nbsp;&nbsp; <input type="password" name="pw" maxlength="20" id="pw1"  placeholder="*******">
+
+            </div>
+            
+            <div class="form-element">
+            
+                <label for="pw">Confirm Password<span class="red-star">*</span></label>
+             &nbsp;&nbsp;&nbsp;   <input type="password" name="password" id="pw2" onkeyup="checkPass();" placeholder="*******">
+                 <p id="confirmMessage" class="confirmMessage"></p> 
+        
+         </div>
+           <div class="form-element">
+            
+                <input type="submit" id="submitButton" value="Submit">
+
+            </div>
+         </div>
+         
+         
+        
+         
+         <script type="text/javascript">
+             
+             $(function() {
+    $( "#birth" ).datepicker();
+  } );
+             
+         
+         
+          function isEmail(email) {
   
                 var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   
@@ -130,10 +212,18 @@
                 
             }
             
-            $("#submitButton").click(function() {
+            $("#submitButton").click(function() 
+                                     {
+                alert("submit");
                 
                 var errorMessage = "";
                 var fieldsMissing = "";
+                
+                if ($("#full-name").val() == "") {
+                    
+                    fieldsMissing += "<br>Name";
+                    
+                }
                 
                 if ($("#email").val() == "") {
                     
@@ -146,14 +236,24 @@
                     fieldsMissing += "<br>Telephone";
                     
                 }
+                if ($("#birth").val() == "") {
+                    
+                    fieldsMissing += "<br>Date of Birth";
+                    
+                }
+                if ($("#username").val() == "") {
+                    
+                    fieldsMissing += "<br>Username";
+                    
+                }
                 
-                if ($("#password").val() == "") {
+                if ($("#pw1").val() == "") {
                     
                     fieldsMissing += "<br>Password";
                     
                 }
                 
-                if ($("#passwordConfirm").val() == "") {
+                if ($("#pw2").val() == "") {
                     
                     fieldsMissing += "<br>Confirm Password";
                     
@@ -173,16 +273,11 @@
                 
                 if ($.isNumeric($("#phone").val()) == false) {
                     
-                    errorMessage += "<p>Your phone number is not numeric</p>"
+                    errorMessage += "<p>Your phone number is not numeric</p";
                     
                 }
                 
-                if ($("#password").val() != $("#passwordConfirm").val()) {
-                    
-                    errorMessage += "<p>Your passwords don't match</p>";
-                    
-                }
-                
+               
                 if (errorMessage != "") {
                     
                     $("#errorMessage").html(errorMessage);
@@ -195,10 +290,8 @@
                 }
                 
             });
-            
-            
-        </script>
-        
+ 
+         </script>
+         
     </body>
-
 </html>
